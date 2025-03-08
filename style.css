@@ -1,26 +1,42 @@
 body {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   background-color: whitesmoke;
   user-select: none;
+  padding: 20px;
+  margin: 0;
 }
 
 .main-heading {
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-.show-container,
-.input-box {
+/* Input Box & Show Container Layout */
+.input-box,
+.show-container {
   display: grid;
-  grid-template-columns: 200px 150px 100px 100px;
-  align-items: center;
-  column-gap: 20px;
-  row-gap: 10px;
-  margin: 20px;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 30px;
+    width: 90%;
+    max-width: 600px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.input {
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: wheat;
+  padding: 10px;
+  width: 100%;
+
 }
 
 .todo-input {
@@ -33,20 +49,13 @@ body {
 }
 
 .btn {
-  font-size: large;
-  padding: 5px 10px;
+  font-size: 1rem;
+  padding: 10px;
   color: white;
   cursor: pointer;
   border: none;
   border-radius: 20px;
-}
-
-.input {
-  font-size: large;
-  border: none;
-  border-radius: 10px;
-  background-color: wheat;
-  padding: 5px 10px;
+  transition: 0.3s;
 }
 
 .btn-add {
@@ -57,18 +66,34 @@ body {
   background-color: red;
 }
 
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* No Tasks Message */
 .no-tasks-heading {
   text-align: center;
   color: red;
-  font-weight: bolder;
-  margin: 40px;
-  font-size: 30px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 20px;
 }
 
 .task-started-msg {
   color: blue;
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
+  margin-top: 10px;
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 600px) {
+  .input-box {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
 }
